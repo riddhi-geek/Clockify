@@ -1,0 +1,28 @@
+<%= form_for ([shift, clock_event]) do |f| %>
+	<div class="row">
+		<div class='col-sm-9'>
+		  <div class="form-group">
+		  	<div class='input-group date datetimepicker'>
+		    	<%= f.text_field :clock_in, label: false, placeholder: "Select clock in time", class: "form-control", value: clock_event.clock_in.strftime("%H:%M:%S") %>
+		     	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		    </div>
+		    <br>
+		    <div class='input-group date datetimepicker' >
+		    	<%= f.text_field :clock_out, label: false, placeholder: "Select clock out time", class: "form-control", value: clock_event.clock_out&.strftime("%H:%M:%S") %>
+		     	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		    </div>
+		    <br>
+		    <%= f.submit "Update Event", class: 'btn btn-primary' %>
+		  </div>
+		</div>
+	</div>
+<% end %>
+
+
+	<script>
+		let current = moment()
+		$('.datetimepicker').datetimepicker({
+	   sideBySide: true,
+	   format: "h:mm A"
+	  });
+	</script>

@@ -1,0 +1,3 @@
+$('#clock_event_form').html("<%= escape_javascript(raw( render partial: 'clock_events/form', locals: { shift: @shift, clock_event: @clock_event }))%>")
+$('#clock_event').modal('show'); 
+

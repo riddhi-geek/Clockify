@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2019-09-25 20:44:06
+  end_time: 2019-09-25 20:44:06
+  approved: false
+  references: 
+
+two:
+  start_time: 2019-09-25 20:44:06
+  end_time: 2019-09-25 20:44:06
+  approved: false
+  references: 

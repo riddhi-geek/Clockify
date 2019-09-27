@@ -1,0 +1,10 @@
+//= require jquery
+//= require jquery_ujs
+//= require custom
+//= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
+//= require sweetalert2
+//= require sweet-alert2-rails
+//= require turbolinks
+//= require_tree .

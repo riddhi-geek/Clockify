@@ -1,0 +1,19 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "Clockify", root_path, class: 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Home', root_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    	<% if user_signed_in? %>
+	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= current_user.try(:name) %> </a></li>
+	      <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+	    <% else %>
+	    	<li><%= link_to 'Sign Up', new_user_registration_path %><span class="glyphicon glyphicon-user"></span></li>
+	    	<li><%= link_to 'Log In', new_user_session_path %><span class="glyphicon glyphicon-log-in"></span></li>
+	    <% end %>
+    </ul>
+  </div>
+</nav>

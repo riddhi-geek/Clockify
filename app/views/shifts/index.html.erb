@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="page-header">
+    <h2>Shifts</h2>
+    <h4><span class="label label-primary"> Create shifts or get the details of existing ones. </span></h4>
+    <%= link_to 'Create Shift', new_shift_path, class: 'btn btn-sm btn-default' %>
+  </div>
+</div>
+<div class="container">
+	<% if @shifts.exists? %>
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th class="text-center">Title</th>
+	        <th class="text-center">Date</th>
+	        <th class="text-center">Total Time Spent on Shift</th>
+	        <th class="text-center">Clock In/Clock Out</th>
+	        <th class="text-center">Actions</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <% @shifts.each do |shift| %>
+	        <tr>
+	          <td class="text-center"><%= shift.title %></td>
+	          <td class="text-center"><%= formatted_date(shift.shift_date) %></td>
+	          <td class="text-center"><%= shift.total_time_spent %></td>
+	          <td class="text-center">
+	          	<% if shift.is_clock_in? %>
+            		<%= link_to 'Clock In', clock_in_shift_path(shift), method: 'POST', class: 'label label-info' %>
+            	<% else %>
+        				<%= link_to 'Clock Out', clock_out_shift_path(shift), method: 'POST', class: 'label label-danger' %>
+        			<% end %>
+	          </td>
+	          <td class="text-center">
+	          	<%= link_to "Show", shift_path(shift), class: 'label label-info'%>
+            	<%= link_to "Edit", edit_shift_path(shift), class: 'label label-primary'%>
+            	<%= link_to "Delete", shift_path(shift), method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+	          </td>
+	        </tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+	<% else %>
+		<h3 class="well">There are no shifts of you yet. Create one!</h3>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  time: 2019-09-25 20:50:46
+  shift_id: 1
+
+two:
+  type: 
+  time: 2019-09-25 20:50:46
+  shift_id: 1
