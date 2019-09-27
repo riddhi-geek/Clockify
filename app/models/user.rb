@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  # Virtual attribute for authentication via username or email
+  attr_accessor :login
+
   PASSWORD_COMPLEXITY = /\A(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,}/x
-  PASSWORD_MIN_LENGTH = 8
 
   # Devise configuration
   devise :database_authenticatable, :registerable
@@ -9,18 +11,19 @@ class User < ApplicationRecord
   has_many :shifts, dependent: :destroy
   has_many :clock_events, through: :shifts
 
-  # validations
+  # Validations
   validates :email, presence: true, uniqueness: true, length: { maximum: 255 }
   validates :name, presence: true, length: { minimum: 2, maximum: 255 }
-  validates :employee_code, uniqueness: true
+  validates :username, presence: :true
 	validates :password,
-    length: { minimum: PASSWORD_MIN_LENGTH },
     format: { with: PASSWORD_COMPLEXITY, message: 'needs to be complex!' },
     on: :create
-  validates :password,
-    length: { minimum: PASSWORD_MIN_LENGTH },
-    confirmation: true,
-    format: { with: PASSWORD_COMPLEXITY, message: 'needs to be complex!' },
-    on: :update, unless: lambda{ |user| user.password.blank? }
+
+  # Overwriting devise's method
+  def self.find_for_database_authentication warden_conditions
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(username) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
+  end
 
 end
