@@ -1,6 +1,6 @@
 # README
 
-The clockify app allows a user to clock in/clock out. It allows a user to create a shift for a particular day. User can clock in/clock out multiples times a day for a shift day he/she is working on. 
+The clockify app is created in Ruby on Rails with Rails 5.0.0, which allows a user to clock in/clock out. It allows a user to create a shift for a particular day. User can clock in/clock out multiples times a day for a shift day he/she is working on. 
 
 Ruby Version - 2.5.0
 
