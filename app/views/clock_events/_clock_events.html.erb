@@ -1,0 +1,11 @@
+<% @shift.clock_events.each do |clock_event| %>
+  <div class="well">
+    <p>Clock in: <%= clock_event.clock_in.strftime("%H:%M:%S on %d/%m/%Y") %></p>
+    <% if clock_event.clock_out.present? %>
+      <p>Clock out: <%= clock_event.clock_out.strftime("%H:%M:%S on %d/%m/%Y") %></p>
+      <p>Total time: <%= clock_event.get_total_time %></p>
+    <% end %>
+    <button type="button" class="label label-default edit_event" shift-id= "<%= @shift.id %>" data-id="<%= clock_event.id %>">Edit </button>
+    <%= link_to 'Delete', shift_clock_event_path(@shift, clock_event), method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+  </div>
+<% end %>

@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The clockify app allows a user to clock in/clock out. It allows a user to create a shift for a particular day. User can clock in/clock out multiples times a day for a shift day he/she is working on. 
 
-Things you may want to cover:
+Ruby Version - 2.5.0
 
-* Ruby version
+The credentials for a user is -
 
-* System dependencies
+Login with - email: riddhi@gmail.com or username: riddhi1103
+Password - Riddhi123@#$
 
-* Configuration
+Or you can also signup or run seed file.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
