@@ -1,6 +1,11 @@
 GEM
-  remote: https://rubygems.org/
   remote: https://rails-assets.org/
+  specs:
+    rails-assets-sweetalert2 (5.1.1)
+      rails-assets-es6-promise
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.0.7.2)
       actionpack (= 5.0.7.2)
@@ -98,7 +103,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
-    puma (3.12.1)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -115,8 +121,6 @@ GEM
       railties (= 5.0.7.2)
       sprockets-rails (>= 2.0.0)
     rails-assets-es6-promise (4.2.4)
-    rails-assets-sweetalert2 (5.1.1)
-      rails-assets-es6-promise
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -195,7 +199,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   momentjs-rails (>= 2.9.0)
   pg (~> 0.18)
-  puma (~> 3.0)
+  puma (~> 4.3)
   rails (~> 5.0.0)
   rails-assets-sweetalert2 (~> 5.1.1)!
   sass-rails (~> 5.0)
